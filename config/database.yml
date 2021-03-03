@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  host: localhost
+  username: sufyaniqbal
+  password: s$$4102481$$S
+
+development:
+  <<: *default
+  database: Bugzilla_Ultimate_development
+
+test:
+  <<: *default
+  database: Bugzilla_Ultimate_test
+
+production:
+  <<: *default
+  database: Bugzilla_Ultimate_production
+  username: Bugzilla_Ultimate
+  password: <%= ENV['BUGZILLA_ULTIMATE_DATABASE_PASSWORD'] %>
