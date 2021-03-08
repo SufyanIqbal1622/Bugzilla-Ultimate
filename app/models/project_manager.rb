@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
-class ProjectManager < ActiveRecord
+class ProjectManager < User
 end

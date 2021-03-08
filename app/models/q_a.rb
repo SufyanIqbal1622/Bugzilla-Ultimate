@@ -1,0 +1,4 @@
+
+
+class QA < User
+end
