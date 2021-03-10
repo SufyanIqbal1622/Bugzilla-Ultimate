@@ -56,6 +56,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:titale, :descreption, :user_id_id)
+    params.require(:project).permit(:titale, :descreption, :status, :user_id)
   end
 end
