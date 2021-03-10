@@ -21,6 +21,10 @@
     <%= form.text_area :decription %>
   </div>
 
+  <div class="field">
+     <%= form.select :type, ['inreview', 'designing', 'develoment', 'testing', 'completed']%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

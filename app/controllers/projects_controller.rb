@@ -4,6 +4,6 @@ class ProjectsController < InheritedResources::Base
   private
 
   def project_params
-    params.require(:project).permit(:title, :decription)
+    params.require(:project).permit(:title, :decription, :status)
   end
 end

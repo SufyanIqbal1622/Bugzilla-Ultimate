@@ -56,3 +56,7 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Max: 25
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - db/schema.rb
+  Max: 50
