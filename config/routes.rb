@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-   devise_for :users #, controllers:{
-  #   registrations: 'developers/registrations'
-  #   registrations: 'q_as'
-  # }
+  devise_for :users
+
+  resources :projects do
+    resources :features
+  end
+
+  resource :project do
+    resources :features
+  end
   root to: "projects#index"
-  resources :projects
   ActiveAdmin.routes(self)
 
 end
