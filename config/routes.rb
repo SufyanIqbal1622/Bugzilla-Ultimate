@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #   registrations: 'developers/registrations'
   #   registrations: 'q_as'
   # }
-  root to:'home#index'
+  root to: "projects#index"
   resources :projects
   ActiveAdmin.routes(self)
 
