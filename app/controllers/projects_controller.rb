@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
   end
 
-  def show; end
+  def show
+    @feature = @project.features.build
+  end
 
   def new
     @project = current_user.projects.build
@@ -16,7 +18,7 @@ class ProjectsController < ApplicationController
   def edit; end
 
   def create
-    @project =current_user.projects.build(project_params)
+    @project = current_user.projects.build(project_params)
 
     respond_to do |format|
       if @project.save

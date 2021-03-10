@@ -12,3 +12,42 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<hr>
+
+<h1>New feature</h1>
+
+<%= render 'features/form' %>
+
+<hr>
+<h1>Listing features</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project.features.each do |feature| %>
+  <%if feature.persisted? %>
+    <tr>
+      <td><%= feature.name %></td>
+      <td><%= feature.description %></td>
+      <td><%= feature.status%></td>
+      <td><%= feature.project.id %></td>
+      <td><%= link_to 'Show', [feature.project, feature] %></td>
+      <td><%= link_to 'Edit', edit_project_feature_path(feature.project, feature) %></td>
+      <td><%= link_to 'Destroy', [feature.project, feature], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <%end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feature', new_project_feature_path(@project.id) %>
