@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-class ProjectsController < InheritedResources::Base
+class ProjectsController < ApplicationController
+
+  def index
+    @projects = current_user.projects
+  end
 
   private
 
