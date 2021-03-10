@@ -4,19 +4,19 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def show; end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def edit; end
 
   def create
-    @project = Project.new(project_params)
+    @project =current_user.projects.build(project_params)
 
     respond_to do |format|
       if @project.save
@@ -52,10 +52,10 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def project_params
-    params.require(:project).permit(:titale, :descreption, :status, :user_id)
+    params.require(:project).permit(:title, :descreption, :status)
   end
 end
