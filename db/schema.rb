@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_03_11_101658) do
     t.text "repro"
     t.string "result"
     t.string "expected_result"
-    t.integer "status"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_bugs_on_project_id"

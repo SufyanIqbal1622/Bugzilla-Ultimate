@@ -6,7 +6,7 @@ class CreateBugs < ActiveRecord::Migration[6.1]
       t.text :repro
       t.string :result
       t.string :expected_result
-      t.integer :status
+      t.string :status
 
       t.timestamps
     end

@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.number_field :status %>
+    <%= f.select :status, Feature::STATUS_OPTIONS %>
   </div>
   <div class="field">
     <%= f.label :image %><br />
