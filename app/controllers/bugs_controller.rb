@@ -33,7 +33,7 @@ class BugsController < ApplicationController
 
   # PUT projects/1/bugs/1
   def update
-    if @bug.update_(bug_params)
+    if @bug.update(bug_params)
       redirect_to([@bug.project, @bug], notice: 'Bug was successfully updated.')
     else
       render action: 'edit'
@@ -50,7 +50,7 @@ class BugsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:project_id])
+    @project = current_user.projects.find(params[:project_id])
   end
 
   def set_bug
@@ -59,6 +59,7 @@ class BugsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def bug_params
-    params.require(:bug).permit(:problem_statment, :repro, :result, :expected_result, :status, :project_id)
+    params.require(:bug).permit(:problem_statment, :repro, :result, :expected_result, :status, :project_id, :remove_image, :image  )
+
   end
 end

@@ -25,10 +25,9 @@
   <%= @bug.status %>
 </p>
 
-<p>
-  <b>Project:</b>
-  <%= @bug.project %>
-</p>
+<% if @bug.image.attached? %>
+ <%= image_tag @bug.image %>
+<% end %>
 
 
 <%= link_to 'Edit', edit_project_bug_path(@bug.project, @bug) %> |
