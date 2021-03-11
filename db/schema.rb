@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_210732) do
+ActiveRecord::Schema.define(version: 2021_03_11_082013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 2021_03_10_210732) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "bugs", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "problem_statment"
+    t.text "repro"
+    t.string "result"
+    t.string "expected_result"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_bugs_on_project_id"
   end
 
   create_table "features", force: :cascade do |t|
@@ -70,5 +82,6 @@ ActiveRecord::Schema.define(version: 2021_03_10_210732) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bugs", "projects"
   add_foreign_key "features", "projects"
 end

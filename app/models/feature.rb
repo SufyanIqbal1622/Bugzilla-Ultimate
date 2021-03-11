@@ -3,7 +3,7 @@
 class Feature < ApplicationRecord
   belongs_to :project
 
-  validates :status, inclusion: { in: ['not-started', 'in-progress', 'in-review' 'complete'] }
+  validates :status, inclusion: { in: ['not-started', 'in-progress', 'in-review', 'complete'] }
 
   STATUS_OPTIONS = [
     ['Not started', 'not-started'],

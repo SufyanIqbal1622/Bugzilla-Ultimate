@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  problem_statment: MyString
+  repro: MyText
+  result: MyString
+  expected_result: MyString
+  status: 1
+  project: 
+
+two:
+  project: two
+  problem_statment: MyString
+  repro: MyText
+  result: MyString
+  expected_result: MyString
+  status: 1
+  project: 
