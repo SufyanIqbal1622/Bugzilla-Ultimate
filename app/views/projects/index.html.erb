@@ -6,11 +6,13 @@
     </h2>
 
     <% @projects.each do |project| %>
-      <%= link_to project do %>
-        <div class="card">
+      <%= link_to project, class:"text-decoration-none" do %>
+        <div class="card project-card mb-3">
           <div class="card-body">
-            <h5 class="card-title"><%= project.title %> </h5>
-            <p><%= project.descreption %> </p>
+            <span class="badge badge-<%=project.badge_color%> mb-3  "><%= project.status %></span>
+
+            <h5 class="card-title text-dark "> <b> <%= project.title %> </b> </h5>
+            <p class="text-secondary"><%= project.descreption %> </p>
           </div>
         </div>
       <%end %>

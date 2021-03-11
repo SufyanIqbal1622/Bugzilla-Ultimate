@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :descreption %>
-    <%= form.text_area :descreption %>
+    <%= form.text_area :descreption, class:"form-control" %>
   </div>
 
-  <div class="field">
-     <%= form.select :type, ['not_started', 'designing', 'develoment', 'testing', 'completed']%>
+  <div class="form-group">
+     <%= form.select :status, ['not_started', 'designing', 'development', 'testing', 'completed'], class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
