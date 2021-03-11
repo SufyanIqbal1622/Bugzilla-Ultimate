@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title d-flex justify-content-between mb-4">
+      <span> <%= @project.title %> </span>
+      <div>
+        <%= link_to 'Edit', edit_project_path(@project), class:"btn btn-warning" %>
+        <%= link_to 'Destroy', @project, method: :delete, class:"btn btn-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    </h2>
+
+    <h6>Add feature</h6>
+
+    <%= render 'features/form' %>
+
+  </div>
+</div>
+
 
 <p>
   <strong>Title:</strong>
@@ -10,14 +26,11 @@
   <%= @project.descreption %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+|
 <%= link_to 'Back', projects_path %>
 
 <hr>
 
-<h1>New feature</h1>
-
-<%= render 'features/form' %>
 
 <hr>
 <h1>Listing features</h1>
