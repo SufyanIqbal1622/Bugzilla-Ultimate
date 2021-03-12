@@ -59,7 +59,6 @@ class BugsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def bug_params
-    params.require(:bug).permit(:problem_statment, :repro, :result, :expected_result, :status, :project_id, :remove_image, :image  )
-
+    params.require(:bug).permit(:problem_statment, :repro, :result, :expected_result, :status, :project_id, :remove_image, :image)
   end
 end

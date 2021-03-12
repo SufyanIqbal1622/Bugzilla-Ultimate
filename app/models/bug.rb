@@ -2,6 +2,7 @@
 
 class Bug < ApplicationRecord
   attr_accessor :remove_image
+
   has_one_attached :image
 
   belongs_to :project
@@ -17,14 +18,10 @@ class Bug < ApplicationRecord
 
   def badge_color
     case status
-      when 'new'
-        'secondary'
-      when 'in-progress'
-        'info'
-      when 'in-review'
-        'warning'
-      when 'fixed'
-        'success'
+    when 'new' then 'secondary'
+    when 'in-progress' then 'info'
+    when 'in-review' then 'warning'
+    else 'success'
     end
   end
 end

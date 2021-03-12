@@ -8,17 +8,11 @@ class Project < ApplicationRecord
 
   def badge_color
     case status
-      when 'not_started'
-        'secondary'
-      when 'designing'
-        'warning'
-      when 'development'
-        'info'
-      when 'testing'
-        'warning'
-      when 'completed'
-        'success'
-
+    when 'not_started' then 'secondary'
+    when 'designing' then 'warning'
+    when 'development' then 'info'
+    when 'testing' then 'warning'
+    else 'success'
     end
   end
 end

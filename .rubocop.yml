@@ -47,7 +47,7 @@ Style/NumericLiterals:
 Style/Lambda:
   Enabled: false
 Metrics/LineLength:
-  Max: 135
+  Max: 140
 Metrics/ClassLength:
   Max: 150
 Metrics/AbcSize:
