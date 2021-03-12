@@ -1,33 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Problem statment:</b>
-  <%= @bug.problem_statment %>
-</p>
 
-<p>
-  <b>Repro:</b>
-  <%= @bug.repro %>
-</p>
+<%= link_to 'Back',   project_bugs_path(@bug.project), class:"btn btn-secondary mb-3" %>
 
-<p>
-  <b>Result:</b>
-  <%= @bug.result %>
-</p>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title  d-flex justify-content-between mb-4">
+      <span><%= @bug.problem_statment%> </span>
+      <div>
+        <%= link_to 'Edit', edit_project_bug_path(@bug.project, @bug), class:"btn btn-outline-warning" %>
+      </div>
+    </h2>
+    <p>
+      <b>Problem statment:</b>
+      <%= @bug.problem_statment %>
+    </p>
 
-<p>
-  <b>Expected result:</b>
-  <%= @bug.expected_result %>
-</p>
+    <p>
+      <b>Repro:</b>
+      <%= @bug.repro %>
+    </p>
 
-<p>
-  <b>Status:</b>
-  <%= @bug.status %>
-</p>
+    <p>
+      <b>Result:</b>
+      <%= @bug.result %>
+    </p>
 
-<% if @bug.image.attached? %>
- <%= image_tag @bug.image %>
-<% end %>
+    <p>
+      <b>Expected result:</b>
+      <%= @bug.expected_result %>
+    </p>
+
+    <p>
+      <b>Status:</b>
+      <%= @bug.status %>
+    </p>
+
+    <% if @bug.image.attached? %>
+    <%= image_tag @bug.image %>
+    <% end %>
+  </div>
+</div>
+
+
 
 
 <%= link_to 'Edit', edit_project_bug_path(@bug.project, @bug) %> |

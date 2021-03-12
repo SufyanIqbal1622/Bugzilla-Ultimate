@@ -1,33 +1,35 @@
-<h1>Listing bugs</h1>
+<%= link_to 'Back', projects_path, class:"btn btn-secondary mb-3" %>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title d-flex justify-content-between mb-4">
+      <span> Bugs </span>
+      <%= link_to 'New Bug', new_project_bug_path(params[:project_id]), class:"btn btn-primary" %>
+    </h2>
+    <% @bugs.each do |bug| %>
+      <%if bug.persisted? %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="badge badge-<%=bug.badge_color %> mb-3  "><%= bug.status %></span>
+              <div>
+                <%= link_to 'Show', [bug.project, bug], class:"btn btn-outline-warning btn-sm" %>
+                <%= link_to 'Edit', edit_project_bug_path(bug.project, bug),  class:"btn btn-outline-warning btn-sm" %>
+                <%= link_to 'Destroy', [bug.project, bug], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %>
+              </div>
+            </div>
+            <h5 class="card-title mb-2">
+            <span> <%= bug.problem_statment %> </span>
 
-<table>
-  <tr>
-    <th>Problem statment</th>
-    <th>Repro</th>
-    <th>Result</th>
-    <th>Expected result</th>
-    <th>Status</th>
-    <th>Project</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            </h5>
+            <p> Repro : <%= bug.repro  %></p>
+            <p>Result :<%= bug.result %></p>
+            <p>Expected Result :  <%= bug.expected_result %></p>
+            <p>Project Title : <%= bug.project.title %></p>
 
-<% @bugs.each do |bug| %>
-  <tr>
-    <td><%= bug.problem_statment %></td>
-    <td><%= bug.repro %></td>
-    <td><%= bug.result %></td>
-    <td><%= bug.expected_result %></td>
-    <td><%= bug.status %></td>
-    <td><%= bug.project %></td>
-    <td><%= link_to 'Show', [bug.project, bug] %></td>
-    <td><%= link_to 'Edit', edit_project_bug_path(bug.project, bug) %></td>
-    <td><%= link_to 'Destroy', [bug.project, bug], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<br />
-
-<%= link_to 'New Bug', new_project_bug_path(params[:project_id]) %>

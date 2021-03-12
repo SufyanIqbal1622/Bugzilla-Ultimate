@@ -1,6 +1,11 @@
-<h1>Editing bug</h1>
 
-<%= render 'form' %>
+<%= link_to 'Back', project_bugs_path(@bug.project, @bug), class:"btn btn-secondary mb-3" %>
 
-<%= link_to 'Show', [@bug.project, @bug] %> |
-<%= link_to 'Back', project_bugs_path(@bug.project) %>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title mb-4">
+      <span>Editing Bug </span>
+    </h2>
+    <%= render 'form', project: @project %>
+  </div>
+</div>

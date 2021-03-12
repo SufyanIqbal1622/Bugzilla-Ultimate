@@ -11,31 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :problem_statment %><br />
-    <%= f.text_field :problem_statment %>
+    <%= f.text_field :problem_statment, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :repro %><br />
-    <%= f.text_area :repro %>
+    <%= f.text_area :repro, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :result %><br />
-    <%= f.text_field :result %>
+    <%= f.text_field :result, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :expected_result %><br />
-    <%= f.text_field :expected_result %>
+    <%= f.text_field :expected_result, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :status %><br />
-    <%= f.select :status, Feature::STATUS_OPTIONS %>
+    <%= f.select :status, Feature::STATUS_OPTIONS, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %><br />
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class:"form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
 <% end %>

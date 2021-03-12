@@ -14,4 +14,17 @@ class Bug < ApplicationRecord
     ['In review', 'in-review'],
     ['Fixed', 'fixed']
   ]
+
+  def badge_color
+    case status
+      when 'new'
+        'secondary'
+      when 'in-progress'
+        'info'
+      when 'in-review'
+        'warning'
+      when 'fixed'
+        'success'
+    end
+  end
 end

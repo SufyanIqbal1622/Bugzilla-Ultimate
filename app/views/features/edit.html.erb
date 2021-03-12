@@ -1,6 +1,12 @@
-<h1>Editing feature</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', [@feature.project, @feature] %> |
-<%= link_to 'Back', project_features_path(@feature.project) %>
+<%= link_to 'Back', project_path(@feature.project, @feature), class:"btn btn-secondary mb-3" %>
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title mb-4">
+      <span>Editing Feature </span>
+    </h2>
+    <%= render 'form', project: @project %>
+  </div>
+</div>

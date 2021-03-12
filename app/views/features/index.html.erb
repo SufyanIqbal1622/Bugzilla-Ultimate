@@ -1,29 +1,30 @@
-<h1>Listing features</h1>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title d-flex justify-content-between mb-4">
+      <span> Features </span>
+      <%= link_to 'New Feature', new_project_feature_path(params[:project_id]), class:"btn btn-primary" %>
+    </h2>
+    <% @features.each do |feature| %>
+      <%if feature.persisted? %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span class="badge badge-<%=feature.badge_color %> mb-3  "><%= feature.status %></span>
+              <div>
+                <%= link_to 'Edit', edit_project_feature_path(feature.project, feature),  class:"btn btn-outline-warning btn-sm" %>
+                <%= link_to 'Destroy', [feature.project, feature], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %>
+              </div>
+            </div>
+            <h5 class="card-title mb-2">
+            <span> <%= feature.name %> </span>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Project</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            </h5>
+            <p><%= feature.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% @features.each do |feature| %>
-  <tr>
-    <td><%= feature.name %></td>
-    <td><%= feature.description %></td>
-    <td><%= feature.status %></td>
-    <td><%= feature.project.id %></td>
-    <td><%= link_to 'Show', [feature.project, feature] %></td>
-    <td><%= link_to 'Edit', edit_project_feature_path(feature.project, feature) %></td>
-    <td><%= link_to 'Destroy', [feature.project, feature], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Feature', new_project_feature_path(params[:project_id]) %>
