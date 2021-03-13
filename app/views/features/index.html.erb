@@ -21,8 +21,8 @@
             </h5>
             <p><%= feature.description %></p>
 
-<%= render partial: "comments/comments", locals: {commentable: feature.id} %>
-<%= render partial: "comments/form", locals: {commentable: feature.id} %>
+            <%= render partial: "comments/comments", locals: {commentable: feature} %>
+            <%= render partial: "comments/form", locals: {commentable: feature} %>
           </div>
         </div>
       <% end %>

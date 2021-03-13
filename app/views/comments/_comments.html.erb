@@ -1,0 +1,10 @@
+<h3>Comments</h3>
+<%if commentable.comments.present?  %>
+<% commentable.comments.each do |comment| %>
+
+    <div class="well">
+      <%= comment.content %>
+    </div>
+  <% end %>
+<% end %>
+
