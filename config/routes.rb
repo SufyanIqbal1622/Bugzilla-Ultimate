@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :projects do
-    resources :bugs
+    resources :bugs do
+      resources :comments, module: :bugs
+    end
   end
   devise_for :users
 
   resources :projects do
-    resources :features
+    resources :features do
+      resources :comments, module: :features
+    end
   end
 
   resource :project do

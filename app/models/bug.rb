@@ -4,6 +4,7 @@ class Bug < ApplicationRecord
   attr_accessor :remove_image
 
   has_one_attached :image
+  has_many :comments, as: :commentable
 
   belongs_to :project
 

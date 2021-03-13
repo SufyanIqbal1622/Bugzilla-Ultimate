@@ -2,6 +2,7 @@
 
 class Feature < ApplicationRecord
   belongs_to :project
+  has_many :comments, as: :commentable
 
   validates :status, inclusion: { in: ['new', 'in-progress', 'in-review', 'complete'] }
 
